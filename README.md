@@ -9,9 +9,9 @@ Este repositorio esta hecho para la entrega del proyecto final del módulo 1 de 
 
 Ejemplo:
 
-[] Read Pre-Work
-[] Walk the dog
-[x] Buy Groceries
+- [ ] Read Pre-Work
+- [ ] Walk the dog
+- [x] Buy Groceries
 
 
 
