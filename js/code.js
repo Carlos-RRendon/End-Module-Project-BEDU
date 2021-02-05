@@ -5,7 +5,11 @@ BEDU - Santander
 Equipo 18
 Integrantes:
 
+* Jesus Omar Cervantes Gonzalez
+* Sergio Alberto García Martínez
 * Carlos Iván Ramírez Rendón
+* Ricardo Ancona Castellanos
+
 
 Descripción: La aplicación a desarrollar será un “To do App” que cumpla con los siguientes user stories:
 
