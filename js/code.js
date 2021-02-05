@@ -56,27 +56,44 @@ parentContainer.appendChild(taskContainer);
 
 //Se define una funcion para crear las tareas y agregarlas al contenedor de tareas (taskContainer)
 function TaskCreator(){
-
+    
+    //Contenedor de cada tarea
     let taskDiv = document.createElement('div');
 
+
+    //Se define un objeto que contiene los tres elementos de cada tarea (un checkbox, un label y un boton de delete)
     let elementGroup = {
         checkboxBtn : document.createElement('input'),
         label : document.createElement('label').appendChild(document.createTextNode(textBox.value)),
         button : document.createElement('button')
     };
 
+    //Se elige el cambia el input por un checkbox y se le da el texto al boton de delete
    elementGroup.checkboxBtn.setAttribute('type','checkbox');
    elementGroup.button.textContent = 'Delete';
 
-   Object.values(elementGroup).forEach(prop => {
-       taskDiv.appendChild(prop);
+   //Se crea el eventListener del checkbox (checkBtn)
+   elementGroup.checkboxBtn.addEventListener('click', () =>{
+    checkSelected(elementGroup);
    });
 
+   //Condicional solo para agregar las tareas si no estan vacias
+   if (textBox.value !== ''){
+       //Iterador para agregar cada propiedad del objeto, es decir cada elemento en el contenedor de cada tarea (taskDiv)
+       Object.values(elementGroup).forEach(prop => {
+           taskDiv.appendChild(prop);
+           });
+   };
+
+   
+   //Se agrega el contenedor de tarea al contenedor padre que contiene todas las tareas (taskContainer)
    taskContainer.appendChild(taskDiv);
+   
+   //Se borra el contenido del input
    textBox.value = '';
    };
 
-  
+   
 
    
 
