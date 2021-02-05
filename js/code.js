@@ -88,7 +88,7 @@ function TaskCreator(){
    //Agregar el eventlistener del boton remove para eliminar el task creado
    elementGroup.button.addEventListener('click', ()=>{
        taskDiv.remove();
-       
+
        //Condicional para borrar el borde de las tareas cuando no haya
        if (taskContainer.children.length === 0){
            taskContainer.style.border = 'none';

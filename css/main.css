@@ -35,8 +35,8 @@ body {
   margin: 20px;
 }
 .textbox-container input {
-  height: 30px;
-  width: 60% px;
+  height: 20px;
+  width: 120px;
   padding: 5px;
   text-align: center;
   margin: 10px;
@@ -46,9 +46,9 @@ body {
   border-color: #05c;
 }
 .textbox-container button {
-  height: 30px;
-  width: 20%;
-  border-radius: 8%;
+  height: 40px;
+  min-width: 100px;
+  border-radius: 10%;
   border: none;
   color: #fff;
   background-color: #05c;
