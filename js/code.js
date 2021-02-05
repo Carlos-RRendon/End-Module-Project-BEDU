@@ -64,23 +64,31 @@ function TaskCreator(){
     //Contenedor de cada tarea
     let taskDiv = document.createElement('div');
 
-
     //Se define un objeto que contiene los tres elementos de cada tarea (un checkbox, un label y un boton de delete)
     let elementGroup = {
         checkboxBtn : document.createElement('input'),
-        label : document.createElement('label').appendChild(document.createTextNode(textBox.value)),
+        label : document.createElement('label'),
         button : document.createElement('button')
     };
+
+    //Se agrega contenido al parrafo
+    elementGroup.label.textContent = textBox.value;
 
     //Se elige el cambia el input por un checkbox y se le da el texto al boton de delete
    elementGroup.checkboxBtn.setAttribute('type','checkbox');
    elementGroup.button.textContent = 'Delete';
 
-   //Se crea el eventListener del checkbox (checkBtn)
-   elementGroup.checkboxBtn.addEventListener('click', () =>{
-    checkSelected(elementGroup);
+   //Agregar el event listener del checkbutton(elementGroup.checkBtn)
+   elementGroup.checkboxBtn.addEventListener('change', function(){       
+    let check = this.checked;
+    elementGroup.label.style.textDecoration = check ?'line-through red' : '';       
    });
 
+   //Agregar el eventlistener del boton remove para eliminar el task creado
+   elementGroup.button.addEventListener('click', ()=>{
+       taskDiv.remove();
+   });
+   
    //Condicional solo para agregar las tareas si no estan vacias
    if (textBox.value !== ''){
        //Iterador para agregar cada propiedad del objeto, es decir cada elemento en el contenedor de cada tarea (taskDiv)
@@ -90,19 +98,19 @@ function TaskCreator(){
    };
 
    
-   //Se agrega el contenedor de tarea al contenedor padre que contiene todas las tareas (taskContainer)
+   //Se agrega el contenedor de tarea(taskDiv) al contenedor padre que contiene todas las tareas (taskContainer)
    taskContainer.appendChild(taskDiv);
    
    //Se borra el contenido del input
    textBox.value = '';
    };
 
-   
-
-   
-
-  
-   
+//Se agrega un event listener al objeto window para detectar los enter y agregar la tarea igual
+ window.addEventListener('keydown',event => {
+     if (event.key === 'Enter'){
+         TaskCreator();
+         };
+     });
 
 
 
