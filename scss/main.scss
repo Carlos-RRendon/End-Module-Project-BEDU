@@ -1,0 +1,111 @@
+@import './mixin';
+@import './global';
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+
+}
+
+#app{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    width: 80%;
+    margin: 40px;
+    padding: 20px;
+    border: 3px solid #aaa;
+    
+
+    h1{
+        text-align: center;
+        margin: 10px;
+        width: 95%;
+    }
+
+}
+
+.textbox-container{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    padding: 20px;
+    margin: 20px;
+
+    input{
+        height:30px;
+        width: 60%px;
+        padding: 5px;
+        text-align: center;
+        margin: 10px;
+        outline: $add-button-color;
+
+        &:focus{
+            border-color: $add-button-color;            
+        }
+    }
+
+    button{
+        height: 30px;
+        width: 20%;
+        border-radius: 8%;
+        border: none;
+        color: #fff;
+        background-color: $add-button-color;
+        margin: 10px;
+
+        &:hover{
+            background-color: #05a;
+        }
+
+    }
+
+}
+
+.task-container{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    border : 3px solid #aaa;
+    
+}
+
+.task{
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    margin: 5px;
+    width: 90%;
+    
+
+    *{
+        margin: 5px;
+    }
+
+    button{
+        height: 20px;
+        width: 50px;
+        border-radius: 8%;
+        border: none;
+        background-color: $delete-button-color;
+        color: #fff;
+
+        &:hover{
+            background-color: #911;
+        }
+
+    }
+
+}

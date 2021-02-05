@@ -63,6 +63,7 @@ function TaskCreator(){
     
     //Contenedor de cada tarea
     let taskDiv = document.createElement('div');
+    taskDiv.className += 'task'
 
     //Se define un objeto que contiene los tres elementos de cada tarea (un checkbox, un label y un boton de delete)
     let elementGroup = {
