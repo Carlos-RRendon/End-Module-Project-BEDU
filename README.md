@@ -19,6 +19,8 @@ Ejemplo:
 - [ ] Read Pre-Work
 - [ ] Walk the dog
 - [x] Buy Groceries
+![Screenshot](/img/mockup.png)
+![Screenshot](/img/unnamed.gif)
 
 
 
