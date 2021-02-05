@@ -64,7 +64,6 @@ body {
   flex-direction: column;
   justify-items: center;
   align-items: center;
-  border: 3px solid #aaa;
 }
 
 .task {

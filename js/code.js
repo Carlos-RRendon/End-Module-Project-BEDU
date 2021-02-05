@@ -60,7 +60,7 @@ parentContainer.appendChild(taskContainer);
 
 //Se define una funcion para crear las tareas y agregarlas al contenedor de tareas (taskContainer)
 function TaskCreator(){
-    
+        
     //Contenedor de cada tarea
     let taskDiv = document.createElement('div');
     taskDiv.className += 'task'
@@ -88,6 +88,11 @@ function TaskCreator(){
    //Agregar el eventlistener del boton remove para eliminar el task creado
    elementGroup.button.addEventListener('click', ()=>{
        taskDiv.remove();
+       
+       //Condicional para borrar el borde de las tareas cuando no haya
+       if (taskContainer.children.length === 0){
+           taskContainer.style.border = 'none';
+       }
    });
    
    //Condicional solo para agregar las tareas si no estan vacias
@@ -95,12 +100,15 @@ function TaskCreator(){
        //Iterador para agregar cada propiedad del objeto, es decir cada elemento en el contenedor de cada tarea (taskDiv)
        Object.values(elementGroup).forEach(prop => {
            taskDiv.appendChild(prop);
-           });
+
+        //Se agrega el contenedor de tarea(taskDiv) al contenedor padre que contiene todas las tareas (taskContainer)
+        taskContainer.appendChild(taskDiv);
+        taskContainer.style.border = '3px solid #aaa';
+        });
    };
 
    
-   //Se agrega el contenedor de tarea(taskDiv) al contenedor padre que contiene todas las tareas (taskContainer)
-   taskContainer.appendChild(taskDiv);
+   
    
    //Se borra el contenido del input
    textBox.value = '';
