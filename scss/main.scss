@@ -8,21 +8,15 @@
 }
 
 body{
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-
+    @include display_ordered(column);
 }
 
 #app{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-items: center;
+    @include display_ordered(column);
     width: 80%;
     margin: 40px;
     padding: 20px;
-    border: 3px solid #aaa;
+    border: 3px solid $border-color;
     
 
     h1{
@@ -35,9 +29,7 @@ body{
 
 .textbox-container{
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include display_ordered(row);
     width: 80%;
     padding: 20px;
     margin: 20px;
@@ -48,17 +40,17 @@ body{
         padding: 5px;
         text-align: center;
         margin: 10px;
-        outline: $add-button-color;
+        outline: none;
 
         &:focus{
-            border-color: $add-button-color;            
+            border-color: none;            
         }
     }
 
     button{
         height: 40px;
         min-width: 100px;
-        border-radius: 10%;
+        border-radius: 8%;
         border: none;
         color: #fff;
         background-color: $add-button-color;
@@ -74,12 +66,7 @@ body{
 
 .task-container{
     margin: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-    //border : 3px solid #aaa;
-    
+    @include display-ordered(column);    
 }
 
 .task{
@@ -93,6 +80,12 @@ body{
     *{
         margin: 5px;
     }
+
+    input{
+        width: 15px;
+        height: 15px;
+    }
+
 
     button{
         height: 20px;

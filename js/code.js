@@ -8,21 +8,19 @@ Integrantes:
 * Jesus Omar Cervantes Gonzalez
 * Sergio Alberto García Martínez
 * Carlos Iván Ramírez Rendón
-* Ricardo Ancona Castellanos
-
 
 Descripción: La aplicación a desarrollar será un “To do App” que cumpla con los siguientes user stories:
 
 - Como usuario quiero agregar nuevas tareas a la lista.
 - Como usuario quiero marcar una tarea como completada.
 - Como usuario quiero eliminar una tarea que no necesite.
+
 Todos los elementos visibles deben ser creados usando funciones de JavaScript, es decir, no se deben agregar o modificar etiquetas HTML.
 */
 
 
 //Selector de contenedor padre, el unico elemento HTML div#app
 let parentContainer = document.getElementById('app');
-//parentContainer.style.border= '3px solid red';
 
 //Se crea el elemento del titulo H1 y se agrega al contenedor padre
 let title = document.createElement('h1');
@@ -75,14 +73,14 @@ function TaskCreator(){
     //Se agrega contenido al parrafo
     elementGroup.label.textContent = textBox.value;
 
-    //Se elige el cambia el input por un checkbox y se le da el texto al boton de delete
+    //Se cambia el input por un checkbox y se le da el texto al boton de delete
    elementGroup.checkboxBtn.setAttribute('type','checkbox');
    elementGroup.button.textContent = 'Delete';
 
    //Agregar el event listener del checkbutton(elementGroup.checkBtn)
    elementGroup.checkboxBtn.addEventListener('change', function(){       
     let check = this.checked;
-    elementGroup.label.style.textDecoration = check ?'line-through red' : '';       
+    elementGroup.label.style.textDecoration = check ?'line-through red' : '';      
    });
 
    //Agregar el eventlistener del boton remove para eliminar el task creado
@@ -106,9 +104,6 @@ function TaskCreator(){
         taskContainer.style.border = '3px solid #aaa';
         });
    };
-
-   
-   
    
    //Se borra el contenido del input
    textBox.value = '';
