@@ -21,10 +21,7 @@ Todos los elementos visibles deben ser creados usando funciones de JavaScript, e
 
 //Selector de contenedor padre, el unico elemento HTML div#app, se le agrega la clase container de Bootstrap
 let parentContainer = document.getElementById('app');
-<<<<<<< HEAD:bootstrap/js/code_b.js
 parentContainer.className += 'container';
-=======
->>>>>>> dev:bootstrap/js/code_css.js
 
 
 //Se crea el elemento del titulo H1 y se agrega al contenedor padre. Se le añaden las clases de bootstrap para centrar texto
@@ -83,13 +80,8 @@ function TaskCreator(){
 
     //Se agrega contenido al parrafo
     elementGroup.label.textContent = textBox.value;
-<<<<<<< HEAD:bootstrap/js/code_b.js
     
     //Se elige el cambia el input por un checkbox y se le da el texto al boton de delete, ademas se le da color al boton con la clase de bootstrap
-=======
-
-    //Se cambia el input por un checkbox y se le da el texto al boton de delete
->>>>>>> dev:bootstrap/js/code_css.js
    elementGroup.checkboxBtn.setAttribute('type','checkbox');
    elementGroup.button.textContent = 'Delete';
    elementGroup.button.className += 'btn btn-danger';
@@ -100,7 +92,6 @@ function TaskCreator(){
        
     //Se verifica el estado del boton
     let check = this.checked;
-<<<<<<< HEAD:bootstrap/js/code_b.js
 
     //Se le dan estilos a las tareas para tachar visualmente una tarea hecha
      elementGroup.label.style.textDecoration = check ?'line-through red' : ''; 
@@ -112,9 +103,6 @@ function TaskCreator(){
             taskDiv.classList.replace('alert-dark', 'alert-info');
         }
     
-=======
-    elementGroup.label.style.textDecoration = check ?'line-through red' : '';      
->>>>>>> dev:bootstrap/js/code_css.js
    });
 
    //Agregar el eventlistener del boton remove para eliminar el task creado
@@ -132,10 +120,7 @@ function TaskCreator(){
         taskContainer.appendChild(taskDiv);
         });
    };
-<<<<<<< HEAD:bootstrap/js/code_b.js
    
-=======
->>>>>>> dev:bootstrap/js/code_css.js
    
    //Se borra el contenido del input
    textBox.value = '';
