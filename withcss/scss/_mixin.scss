@@ -1,6 +1,0 @@
-@mixin  display_ordered ($direction){
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    flex-direction: $direction;
-}
