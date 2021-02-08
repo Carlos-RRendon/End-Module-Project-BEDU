@@ -22,18 +22,3 @@ Ejemplo:
 ![Screenshot](/img/mockup.png)
 ![Screenshot](/img/unnamed.gif)
 
-## Organización
-
-Se crearon dos ramas (dev y bootstrap) aparte de main, en cada una se desarrollo el codigo en javascrpit con la misma funcionalidad, la diferencia es que en dev los estilos se dieron con hojas de estilo (CSS) y en bootstrap se tienen con Bootstrap. Ambos proyectos estan en carpetas separadas en main como ([bootstrap](./bootstrap) y [CSS](./withcss)).
-
-#### Bootstrap
-![Screenshot](/img/.png)
-
-#### CSS
-![Screenshot](/img/App-css.png)
-
-
-
-
-
-
