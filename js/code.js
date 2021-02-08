@@ -20,30 +20,37 @@ Todos los elementos visibles deben ser creados usando funciones de JavaScript, e
 */
 
 
-//Selector de contenedor padre, el unico elemento HTML div#app
+//Selector de contenedor padre, el unico elemento HTML div#app, se le agrega la clase container de Bootstrap
 let parentContainer = document.getElementById('app');
-//parentContainer.style.border= '3px solid red';
+parentContainer.className += 'container';
 
-//Se crea el elemento del titulo H1 y se agrega al contenedor padre
+
+//Se crea el elemento del titulo H1 y se agrega al contenedor padre. Se le añaden las clases de bootstrap para centrar texto
 let title = document.createElement('h1');
 title.textContent = 'To Do App';
+title.className += 'text-center my-5';
+
+//Al contenedor app se le agrega el titulo
 parentContainer.appendChild(title);
 
-//Se crea el contenedor para el input y el boton de add
+//Se crea el contenedor para el input y el boton de add, se le agregan las clases  de bootstrap para alinear
 let textBoxContainer = document.createElement('div');
-textBoxContainer.className += 'textbox-container';
+textBoxContainer.className += 'textbox-container d-flex justify-content-between align-items-center';
+textBoxContainer.id = 'textbox-container';
 
-//Creacion del input text y del boton add
-let textBox = document.createElement('input')
-textBox.setAttribute('placeholder','New Task...') ;
+//Creacion del input text y del boton add, se le agregan los estilos de boostrap con las clases
+let textBox = document.createElement('input');
+textBox.setAttribute('placeholder','New Task...');
+textBox.className += 'form-control my-2';
 let addButton = document.createElement('button');
 addButton.textContent = 'Add';
+addButton.className += 'btn btn-primary';
+
 
 //Se agregan los eventos al boton add (addButton)
 addButton.addEventListener('click',() => {
     TaskCreator();
 });
-
 
 //Se agregan los elementos creados al contenedor
 textBoxContainer.appendChild(textBox);
@@ -54,16 +61,16 @@ parentContainer.appendChild(textBoxContainer);
 
 //Se crea el contenedor para las task
 let taskContainer = document.createElement('div');
-taskContainer.className += 'task-container';
+taskContainer.className += 'task-container mt-3';
 parentContainer.appendChild(taskContainer);
 
 
 //Se define una funcion para crear las tareas y agregarlas al contenedor de tareas (taskContainer)
 function TaskCreator(){
         
-    //Contenedor de cada tarea
+    //Contenedor de cada tarea con las clases de bootstrap para estilos
     let taskDiv = document.createElement('div');
-    taskDiv.className += 'task'
+    taskDiv.className += 'task alert alert-info d-flex justify-content-between align-items-center';
 
     //Se define un objeto que contiene los tres elementos de cada tarea (un checkbox, un label y un boton de delete)
     let elementGroup = {
@@ -74,25 +81,34 @@ function TaskCreator(){
 
     //Se agrega contenido al parrafo
     elementGroup.label.textContent = textBox.value;
-
-    //Se elige el cambia el input por un checkbox y se le da el texto al boton de delete
+    
+    //Se elige el cambia el input por un checkbox y se le da el texto al boton de delete, ademas se le da color al boton con la clase de bootstrap
    elementGroup.checkboxBtn.setAttribute('type','checkbox');
    elementGroup.button.textContent = 'Delete';
-
+   elementGroup.button.className += 'btn btn-danger';
+   
+   
    //Agregar el event listener del checkbutton(elementGroup.checkBtn)
-   elementGroup.checkboxBtn.addEventListener('change', function(){       
+   elementGroup.checkboxBtn.addEventListener('change', function(){
+       
+    //Se verifica el estado del boton
     let check = this.checked;
-    elementGroup.label.style.textDecoration = check ?'line-through red' : '';       
+
+    //Se le dan estilos a las tareas para tachar visualmente una tarea hecha
+     elementGroup.label.style.textDecoration = check ?'line-through red' : ''; 
+
+     //Condicional para cambiar el color del contenedor de la tarea con las clases de bootstrap, azul sino esta completada, gris si esta completada
+    if (check){
+        taskDiv.classList.replace('alert-info','alert-dark');}
+    else{
+            taskDiv.classList.replace('alert-dark', 'alert-info');
+        }
+    
    });
 
    //Agregar el eventlistener del boton remove para eliminar el task creado
    elementGroup.button.addEventListener('click', ()=>{
        taskDiv.remove();
-
-       //Condicional para borrar el borde de las tareas cuando no haya
-       if (taskContainer.children.length === 0){
-           taskContainer.style.border = 'none';
-       }
    });
    
    //Condicional solo para agregar las tareas si no estan vacias
@@ -103,11 +119,8 @@ function TaskCreator(){
 
         //Se agrega el contenedor de tarea(taskDiv) al contenedor padre que contiene todas las tareas (taskContainer)
         taskContainer.appendChild(taskDiv);
-        taskContainer.style.border = '3px solid #aaa';
         });
    };
-
-   
    
    
    //Se borra el contenido del input
@@ -120,8 +133,4 @@ function TaskCreator(){
          TaskCreator();
          };
      });
-
-
-
-
 
